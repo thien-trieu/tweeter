@@ -7,10 +7,8 @@
   align-self: center;
 }
 
-.tweet {
-  width: 100%;
-  border-width: 0 0 4px;
-
+.tweetHeader {
+  font-weight: bold;
 }
 
 .submit-section {
@@ -25,3 +23,14 @@
   background-color: #4056A1;
   border: none;
 }
+
+#tweet-text {
+  resize: none;
+  outline: none;
+  border-width: 0 0 4px;
+  background-color: transparent;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+}
+
