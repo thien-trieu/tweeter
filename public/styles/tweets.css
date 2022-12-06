@@ -1,0 +1,18 @@
+section.tweets {
+  border: 2px solid #545149;
+  padding: 1em;
+}
+
+header.tweetHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer.tweetFooter {
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

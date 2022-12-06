@@ -27,6 +27,9 @@
     <!-- App new-tweet CSS -->
     <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
 
+    <!-- App new-tweet CSS -->
+    <link rel="stylesheet" href="./styles/tweets.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -35,6 +38,10 @@
 
     <!-- App composer-char-counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- App icon-hover -->
+    <script type="text/javascript" src="/scripts/icon-hover.js"></script>
+
 
   </head>
 
@@ -48,7 +55,7 @@
     </div>
     </nav>
 
-    <header>
+    <header class="mainHeader">
       <div>
           <img src="./images/profile-hex.png"> 
       </div>
@@ -61,21 +68,36 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        
-
         <form>
           <label class="tweetHeader" for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-
           <div class="submit-section">
-
             <button type="submit" class="tweet-btn">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
-
           </div>
         </form>
-
       </section>
+
+      <section class="tweets">
+        <article>
+          <header class="tweetHeader">
+            <h4>Newton</h4>
+            <h4>@SirIsaac</h4>
+          </header>
+            <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatem earum quas animi consectetur quae officia iure facilis minus molestiae perferendis, ratione delectus in ex nesciunt magnam illo reprehenderit voluptate.</article>
+          <hr>
+          <footer class="tweetFooter">
+            <h6>10 days ago</h6>
+            <div class="icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-user"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      
     </main>
 
 

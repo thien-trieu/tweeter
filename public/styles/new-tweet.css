@@ -7,6 +7,10 @@
   align-self: center;
 }
 
+section.new-tweet {
+  padding-bottom: 50px;
+}
+
 .tweetHeader {
   font-weight: bold;
 }

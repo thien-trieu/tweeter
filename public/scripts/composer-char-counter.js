@@ -1,7 +1,5 @@
 $(document).ready(function() {
   // --- our code goes here ---
-
-
   $('#tweet-text').keydown(function() {
     const tweetLength = $(this).val().length;
     const counter = $(this).siblings().children()[1];
@@ -14,9 +12,6 @@ $(document).ready(function() {
       $(counter).css('color', '#545149');
     }
 
-
   });
-
-
 
 });
