@@ -9,3 +9,12 @@ header.main {
   background-image: url("https://www.transparenttextures.com/patterns/checkered-light-emboss.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
+img.headImage {
+  border: 5px solid #555;
+}
+
+span.headName {
+  font-size: 50px;
+}
+

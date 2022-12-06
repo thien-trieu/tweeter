@@ -1,11 +1,13 @@
-section.tweets {
+article.tweets {
   border: 2px solid #545149;
   padding: 1em;
+  margin-bottom: 1em;
 }
 
-section.tweets:hover {
+article.tweets:hover {
   border: 2px solid #545149;
   padding: 1em;
+  margin-bottom: 1em;
   box-shadow: 5px 5px #888888;
 }
 
@@ -19,7 +21,7 @@ div.tweeterProfile {
   align-items: center;
 }
 
-img.tweeterImage {
+img.avatar {
   width: 40px;
   height: 40px;
 }
@@ -30,6 +32,14 @@ h5.tweeterName {
 
 h4.userName {
   color:#888888;
+}
+
+output.counter {
+  color:#545149;
+}
+
+output.counterRed {
+  color:#e1443d;
 }
 
 footer.tweetFooter {
