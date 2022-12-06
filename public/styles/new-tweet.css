@@ -1,0 +1,27 @@
+.container {
+  padding-top: 15px;
+  width: 90%;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.tweet {
+  width: 100%;
+  border-width: 0 0 4px;
+
+}
+
+.submit-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+}
+
+.tweet-btn {
+  color: white;
+  background-color: #4056A1;
+  border: none;
+}
