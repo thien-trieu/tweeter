@@ -39,34 +39,32 @@
     <!-- App composer-char-counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <!-- App icon-hover -->
-    <script type="text/javascript" src="/scripts/icon-hover.js"></script>
-
 
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-    <h1 class="logo">tweeter</h1>
-    <div class="newTweet">
-      <span><strong>Write</strong> a new tweet</span>
-      <i class="fa-solid fa-angles-down"></i>
-    </div>
+      <h1 class="logo">tweeter</h1>
+      <div class="newTweet">
+        <span><strong>Write</strong> a new tweet</span>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
     </nav>
 
-    <header class="mainHeader">
+    <header class="main">
       <div>
-          <img src="./images/profile-hex.png"> 
+        <img src="./images/profile-hex.png"> 
       </div>
       <div>
-          <h2><strong>Amy</strong> Mansell</h2>
+         <h2><strong>Amy</strong> Mansell</h2>
       </div>
     </header>
 
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <form>
           <label class="tweetHeader" for="tweet-text">What are you humming about?</label>
@@ -81,22 +79,26 @@
       <section class="tweets">
         <article>
           <header class="tweetHeader">
-            <h4>Newton</h4>
-            <h4>@SirIsaac</h4>
+            <div class="tweeterProfile">
+              <img class="tweeterImage" src="https://i.imgur.com/73hZDYK.png">
+              <h5 class="tweeterName">Newton</h5>
+            </div>
+            <div class="tweetUser">
+              <h4 class="userName">@SirIsaac</h4>
+            </div>
           </header>
-            <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatem earum quas animi consectetur quae officia iure facilis minus molestiae perferendis, ratione delectus in ex nesciunt magnam illo reprehenderit voluptate.</article>
+            <article class="tweetMessage">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatem earum quas animi consectetur quae officia iure facilis minus molestiae perferendis, ratione delectus in ex nesciunt magnam illo reprehenderit voluptate.</article>
           <hr>
           <footer class="tweetFooter">
             <h6>10 days ago</h6>
-            <div class="icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-user"></i>
-              <i class="fa-solid fa-heart"></i>
+            <div>
+              <i class="fa-solid fa-flag icons"></i>
+              <i class="fa-sharp fa-solid fa-retweet icons"></i>
+              <i class="fa-solid fa-heart icons"></i>
             </div>
           </footer>
         </article>
       </section>
-
       
     </main>
 

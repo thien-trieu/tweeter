@@ -10,11 +10,11 @@ nav {
   position: fixed;
 }
 
-.logo{
+h1.logo{
   font-family: 'Bungee', cursive;
 }
 
-.newTweet{
+div.newTweet{
   display: flex;
   flex-direction: column;
   align-items: center;

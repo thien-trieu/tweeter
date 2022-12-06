@@ -3,9 +3,33 @@ section.tweets {
   padding: 1em;
 }
 
+section.tweets:hover {
+  border: 2px solid #545149;
+  padding: 1em;
+  box-shadow: 5px 5px #888888;
+}
+
 header.tweetHeader {
   display: flex;
   justify-content: space-between;
+}
+
+div.tweeterProfile {
+  display: flex;
+  align-items: center;
+}
+
+img.tweeterImage {
+  width: 40px;
+  height: 40px;
+}
+
+h5.tweeterName {
+  margin: 10px;
+}
+
+h4.userName {
+  color:#888888;
 }
 
 footer.tweetFooter {
@@ -15,4 +39,18 @@ footer.tweetFooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+hr {
+  height: 2px;
+  width: auto;
+  background-color: #888888;
+}
+
+i.icons {
+  color: #4056A1;
+}
+
+i.icons:hover {
+  color: #caa65e;
 }

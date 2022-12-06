@@ -27,3 +27,12 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+ main.container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 90%;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
