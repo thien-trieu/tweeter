@@ -4,32 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
+// Tweet element for each tweet will appear within section#tweet-container
 const createTweetElement = function(tweet) {
   let $tweet = `
   <article class="tweets">
@@ -57,30 +32,54 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-const renderTweets = function(tweets) {
-  for (const tweet of tweets) {
 
+const renderTweets = function(tweets) {
+  const allTweets = [];
+
+  for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    allTweets.push($tweet);
+
   }
+
+  $('#tweets-container').html(allTweets.reverse());
+
   return;
+};
+
+
+const loadTweets = function() {
+
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function(tweet) {
+      renderTweets(tweet);
+    });
+
 };
 
 $(document).ready(function() {
 
-  renderTweets(data);
+  loadTweets();
 
   $('.tweetForm').submit(function(event) {
     event.preventDefault();
 
     const tweet = $(this).serialize();
 
-      $.ajax({
-        type: "POST",
-        url: "/tweets",
-        data: tweet,
-      });
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: tweet,
+      success: function(data) {
+        loadTweets();
+      }
+    });
+
 
   });
+
+  // $('.tweet-btn').on('click', function(){
+  //   $('#tweet-text').val('')
+  // })
 
 });
