@@ -5,6 +5,13 @@
  */
 
 // Tweet element for each tweet will appear within section#tweet-container
+const escapeXss = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+
 const createTweetElement = function(tweet) {
   let $tweet = `
   <article class="tweets">
@@ -17,7 +24,7 @@ const createTweetElement = function(tweet) {
       <h4 class="userName">${tweet.user.handle}</h4>
     </div>
   </header>
-    <article class="tweetText">${tweet.content.text}</article>
+    <article class="tweetText">${escapeXss(tweet.content.text)}</article>
   <hr>
   <footer class="tweetFooter">
     <h6>${timeago.format(tweet.created_at)}</h6>
@@ -73,11 +80,8 @@ $(document).ready(function() {
     // error if tweet length is invalid, does not send ajax POST request
     const $tweetlength = $('#tweet-text').val().length
       if ($tweetlength === 0 || $tweetlength > 140){
-      return alert('This field can not be empty or have more than 140 characters')
+        return alert('This field can not be empty or have more than 140 characters')
       }
-    
-    // console.log('text value: ', $('#tweet-text').val())
-    // console.log('text value length:', $('#tweet-text').val().length)
 
     // get new tweet data from text area and serialize it
     const $tweet = $(this).serialize();
