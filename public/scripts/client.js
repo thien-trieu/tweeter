@@ -30,8 +30,6 @@ const data = [
   }
 ];
 
-
-
 const createTweetElement = function(tweet) {
   let $tweet = `
   <article class="tweets">
@@ -60,16 +58,29 @@ const createTweetElement = function(tweet) {
 };
 
 const renderTweets = function(tweets) {
-
   for (const tweet of tweets) {
 
     const $tweet = createTweetElement(tweet);
-
-    $(document).ready(function() {
-      $('#tweets-container').append($tweet);
-    });
+    $('#tweets-container').append($tweet);
   }
   return;
 };
 
-renderTweets(data);
+$(document).ready(function() {
+
+  renderTweets(data);
+
+  $('.tweetForm').submit(function(event) {
+    event.preventDefault();
+
+    const tweet = $(this).serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data: tweet,
+      });
+
+  });
+
+});
