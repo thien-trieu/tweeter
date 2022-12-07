@@ -50,10 +50,13 @@ const renderTweets = function(tweets) {
 
 const loadTweets = function() {
 
-  $.ajax('/tweets', { method: 'GET' })
-    .then(function(tweet) {
+  $.ajax({
+    type: "GET",
+    url: "/tweets",
+    success: function(tweet) {
       renderTweets(tweet);
-    });
+    }
+  });
 
 };
 
