@@ -49,7 +49,7 @@ const renderTweets = function(tweets) {
 
 
 const loadTweets = function() {
-
+  // gets the tweet db from /tweets route and calls renderTweets to post on to page
   $.ajax({
     type: "GET",
     url: "/tweets",
@@ -57,18 +57,21 @@ const loadTweets = function() {
       renderTweets(tweet);
     }
   });
-
+  return;
 };
 
 $(document).ready(function() {
-
+  // load existing tweet db
   loadTweets();
 
   $('.tweetForm').submit(function(event) {
+    // prevent page from re-loading
     event.preventDefault();
 
+    // get new tweet data from text area and serialize it
     const tweet = $(this).serialize();
 
+    // new tweet data POST to /tweet route then call loadTweets to show onto page
     $.ajax({
       type: "POST",
       url: "/tweets",
@@ -76,13 +79,13 @@ $(document).ready(function() {
       success: function(data) {
         loadTweets();
       }
+
     });
 
-
+    // Clear text area after new tweet is posted to page
+    this.reset();
+    // restart counter at 140
+    $('.counter').text(140);
   });
-
-  // $('.tweet-btn').on('click', function(){
-  //   $('#tweet-text').val('')
-  // })
 
 });
