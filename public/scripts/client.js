@@ -64,18 +64,29 @@ $(document).ready(function() {
   // load existing tweet db
   loadTweets();
 
-  $('.tweetForm').submit(function(event) {
+ 
+
+   $('.tweetForm').submit(function(event) {
     // prevent page from re-loading
     event.preventDefault();
 
+    // error if tweet length is invalid, does not send ajax POST request
+    const $tweetlength = $('#tweet-text').val().length
+      if ($tweetlength === 0 || $tweetlength > 140){
+      return alert('This field can not be empty or have more than 140 characters')
+      }
+    
+    // console.log('text value: ', $('#tweet-text').val())
+    // console.log('text value length:', $('#tweet-text').val().length)
+
     // get new tweet data from text area and serialize it
-    const tweet = $(this).serialize();
+    const $tweet = $(this).serialize();
 
     // new tweet data POST to /tweet route then call loadTweets to show onto page
     $.ajax({
       type: "POST",
       url: "/tweets",
-      data: tweet,
+      data: $tweet,
       success: function(data) {
         loadTweets();
       }
