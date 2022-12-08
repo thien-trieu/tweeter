@@ -5,7 +5,7 @@
  */
 
 
-const escapeXss = function (str) {
+const escapeXss = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -44,7 +44,7 @@ const renderTweets = function(tweets) {
   const allTweets = [];
 
   for (const tweet of tweets) {
-  // check all data for tweets and place each tweet into HTML template
+    // check all data for tweets and place each tweet into HTML template
     const $tweet = createTweetElement(tweet);
     allTweets.push($tweet);
 
@@ -72,24 +72,61 @@ $(document).ready(function() {
   // load existing tweet db
   loadTweets();
 
-
+  
   // Write a new tweet in nav will focus on input field for text area
-  $('.newTweet').click(function() {
+  $('.navTweet').click(function() {
+    event.preventDefault();
     $('#tweet-text').focus();
   });
+  
+  // nav arrow hide/show new tweet section
+  $('.next').click(function() {
+    event.preventDefault();
+    const newTweetSection = $('.new-tweet')
+    console.log(newTweetSection)
 
+    if (newTweetSection.is(':visible')){
+      newTweetSection.slideUp('fast')
+    } else {
+      newTweetSection.slideDown('slow')
+      newTweetSection.find('input').focus()
+    }
 
-   $('.tweetForm').submit(function(event) {
+  });
+  
+  // scroll button at the botton will appear when window scrolls down
+  $(window).scroll(function() {
+    if (window.pageYOffset > 100) {
+      $('.scrollUp').addClass('active');
+    } else {
+      $('.scrollUp').removeClass('active');
+    }
+  });
+
+  // scroll when clicked will scroll page up to text area
+  $('.scrollUp').click(function() {
+    event.preventDefault();
+    const newTweetSection = $('.new-tweet')
+    if (newTweetSection.is(':hidden')){
+      newTweetSection.slideDown('fast')
+      newTweetSection.find('input').focus()
+    }
+    $('#tweet-text').focus();
+
+  });
+
+  // tweet submission
+  $('.tweetForm').submit(function(event) {
     // prevent page from re-loading
     event.preventDefault();
 
     // error if tweet length is invalid, does not send ajax POST request
-    const $tweetlength = $('#tweet-text').val().length
-      if ($tweetlength === 0 || $tweetlength > 140){
+    const $tweetlength = $('#tweet-text').val().length;
+    if ($tweetlength === 0 || $tweetlength > 140) {
 
-        return $('.errorMessage').css('visibility', 'visible')
-        // return alert('This field can not be empty or have more than 140 characters')
-      }
+      return $('.errorMessage').css('visibility', 'visible');
+      // return alert('This field can not be empty or have more than 140 characters')
+    }
 
     // get new tweet data from text area and serialize it
     const $tweet = $(this).serialize();
@@ -100,12 +137,12 @@ $(document).ready(function() {
       url: "/tweets",
       data: $tweet,
       success: function(data) {
-        
+
         $('.errorMessage').css('visibility', 'hidden');
         $('.counter').text(140);
 
         loadTweets();
-        
+
       }
 
     });

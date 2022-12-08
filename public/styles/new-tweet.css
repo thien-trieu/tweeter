@@ -43,7 +43,7 @@ button.tweet-btn {
 button.tweet-btn:hover {
   color: white;
   background-color: #2b47a3;
-  border: none;
+  border: solid 2px #000;
 }
 
 output.counter {
