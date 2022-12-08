@@ -18,7 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 ## Responsive Design
+- Layout will update depending on screen
 
-!["Desktop View"](docs/tweeter-desktop.PNG)
+!["Desktop View"](https://github.com/thien-trieu/tweeter/blob/master/docs/tweeter-desktop.PNG)
 
-!["Mobile View"](docs/tweeter-mobile.PNG)
+!["Mobile View"](https://github.com/thien-trieu/tweeter/blob/master/docs/tweeter-mobile.PNG)
