@@ -76,6 +76,11 @@ $(document).ready(function() {
   // Write a new tweet in nav will focus on input field for text area
   $('.navTweet').click(function() {
     event.preventDefault();
+    const newTweetSection = $('.new-tweet')
+    if (newTweetSection.is(':hidden')){
+      newTweetSection.slideDown('fast')
+      newTweetSection.find('#tweet-text').focus()
+    }
     $('#tweet-text').focus();
   });
   
@@ -89,7 +94,7 @@ $(document).ready(function() {
       newTweetSection.slideUp('fast')
     } else {
       newTweetSection.slideDown('slow')
-      newTweetSection.find('input').focus()
+      newTweetSection.find('#tweet-text').focus()
     }
 
   });
@@ -109,7 +114,7 @@ $(document).ready(function() {
     const newTweetSection = $('.new-tweet')
     if (newTweetSection.is(':hidden')){
       newTweetSection.slideDown('fast')
-      newTweetSection.find('input').focus()
+      newTweetSection.find('#tweet-text').focus()
     }
     $('#tweet-text').focus();
 
