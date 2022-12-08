@@ -16,6 +16,10 @@ textarea#tweet-text {
   font-size: 20px;
 }
 
+textarea#tweet-text::placeholder {
+  font-weight: bold;
+}
+
 div.submit-section {
   display: flex;
   justify-content: space-between;

@@ -71,7 +71,10 @@ $(document).ready(function() {
   // load existing tweet db
   loadTweets();
 
- 
+  $('.newTweet').click(function() {
+    $('#tweet-text').focus();
+  });
+
 
    $('.tweetForm').submit(function(event) {
     // prevent page from re-loading
