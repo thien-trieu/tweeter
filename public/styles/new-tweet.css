@@ -6,7 +6,7 @@ label.tweetHeader {
   font-weight: bold;
 }
 
-textarea#tweet-text {
+input#tweet-text {
   resize: none;
   outline: none;
   border-width: 0 0 4px;
@@ -16,7 +16,7 @@ textarea#tweet-text {
   font-size: 20px;
 }
 
-textarea#tweet-text::placeholder {
+input#tweet-text::placeholder {
   font-weight: bold;
 }
 

@@ -43,13 +43,9 @@
 
     <!-- App composer-char-counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
-
-
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
     <nav>
       <h1 class="logo">tweeter</h1>
       <div class="newTweet">
@@ -58,36 +54,30 @@
       </div>
     </nav>
 
+    <header class="main">
+      <div>
+        <img clase="headImage" src="./images/profile-hex.png"> 
+      </div>
+      <div clas>
+        <span class="headName"><strong>Ariana</strong> Grande</span>
+      </div>
+    </header>
+  
+    <main class="container">
+      <section class="new-tweet">
+        <form class="tweetForm">
+          <label class="tweetHeader" for="tweet-text"></label>
+          <input name="text" id="tweet-text" placeholder="What are you humming about?"></input>
+          <div class="errorMessage"><i class="fa-solid fa-triangle-exclamation"></i> Tweet can not be left empty or have more than 140 characters!</div>
+          <div class="submit-section"></div>
+          <div class="submit-section">
+            <button type="submit" class="tweet-btn">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
 
-    <!-- ------------------------------------------------------------------------------- -->
- 
-      <header class="main">
-        <div>
-          <img clase="headImage" src="./images/profile-hex.png"> 
-        </div>
-        <div clas>
-          <span class="headName"><strong>Ariana</strong> Grande</span>
-        </div>
-      </header>
-    <!-- ------------------------------------------------------------------------------- -->
-      <main class="container">
-        <section class="new-tweet">
-          <form class="tweetForm">
-            <label class="tweetHeader" for="tweet-text"></label>
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-            <div class="errorMessage"><i class="fa-solid fa-triangle-exclamation"></i> Tweet can not be left empty or have more than 140 characters!</div>
-            <div class="submit-section"></div>
-            <div class="submit-section">
-              <button type="submit" class="tweet-btn">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
-          </form>
-        </section>
-
-        <section id="tweets-container"></section>
-      </main>
-
-    <!-- ------------------------------------------------------------------------------- -->
-
+      <section id="tweets-container"></section>
+    </main>
   </body>
 </html>

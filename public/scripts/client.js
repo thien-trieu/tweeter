@@ -4,14 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Tweet element for each tweet will appear within section#tweet-container
+
 const escapeXss = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-
+// Tweet element for each tweet will appear within section#tweet-container
 const createTweetElement = function(tweet) {
   let $tweet = `
   <article class="tweets">
@@ -44,11 +44,12 @@ const renderTweets = function(tweets) {
   const allTweets = [];
 
   for (const tweet of tweets) {
+  // check all data for tweets and place each tweet into HTML template
     const $tweet = createTweetElement(tweet);
     allTweets.push($tweet);
 
   }
-
+  // most recent tweet will appear at top of container
   $('#tweets-container').html(allTweets.reverse());
 
   return;
@@ -71,6 +72,8 @@ $(document).ready(function() {
   // load existing tweet db
   loadTweets();
 
+
+  // Write a new tweet in nav will focus on input field for text area
   $('.newTweet').click(function() {
     $('#tweet-text').focus();
   });
