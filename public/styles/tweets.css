@@ -2,6 +2,7 @@ article.tweets {
   border: 2px solid #545149;
   padding: 1em;
   margin-bottom: 1em;
+  border-radius: 5px;
 }
 
 article.tweets:hover {

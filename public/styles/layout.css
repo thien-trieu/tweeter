@@ -83,6 +83,7 @@ body {
     flex: 1;
     margin-top: 160px;
     margin-left: 50px;
+    border-radius: 5px;
   }
   
   main.container {

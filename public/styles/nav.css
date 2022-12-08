@@ -21,8 +21,6 @@ div.newTweet{
   align-items: center;
 }
 
-
-
 i.fa-angles-down {
   animation: bounce 0.3s infinite;
 }
@@ -30,6 +28,7 @@ i.fa-angles-down {
 a.navTweet {
   text-decoration: none;
   color: #FFFFFF;
+  font-size:20px;
 }
 
 a.navTweet:hover {

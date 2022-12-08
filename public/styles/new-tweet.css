@@ -29,6 +29,7 @@ div.submit-section {
 
 div.errorMessage {
   font: 15px bold;
+  margin-top: 5px;
   margin-bottom: 5px;
   color:#e1443d;
   visibility: hidden;
