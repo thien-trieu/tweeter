@@ -34,14 +34,6 @@ h4.userName {
   color:#888888;
 }
 
-output.counter {
-  color:#545149;
-}
-
-output.counterRed {
-  color:#e1443d;
-}
-
 footer.tweetFooter {
   padding-left: 1em;
   padding-right: 1em;
@@ -62,5 +54,5 @@ i.icons {
 }
 
 i.icons:hover {
-  color: #caa65e;
+  color: #ceb380;
 }

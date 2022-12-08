@@ -4,6 +4,8 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <!-- Disabling Viewport Zooming -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
@@ -56,34 +58,36 @@
       </div>
     </nav>
 
-    <header class="main">
-      <div>
-        <img clase="headImage" src="./images/profile-hex.png"> 
-      </div>
-      <div clas>
-         <span class="headName"><strong>Amy</strong> Mansell</span>
-      </div>
-    </header>
 
+    <!-- ------------------------------------------------------------------------------- -->
+ 
+      <header class="main">
+        <div>
+          <img clase="headImage" src="./images/profile-hex.png"> 
+        </div>
+        <div clas>
+          <span class="headName"><strong>Ariana</strong> Grande</span>
+        </div>
+      </header>
+    <!-- ------------------------------------------------------------------------------- -->
+      <main class="container">
+        <section class="new-tweet">
+          <form class="tweetForm">
+            <label class="tweetHeader" for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="errorMessage"><i class="fa-solid fa-triangle-exclamation"></i> Tweet can not be left empty or have more than 140 characters!</div>
+            <div class="submit-section"></div>
+            <div class="submit-section">
+              <button type="submit" class="tweet-btn">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
+        <section id="tweets-container"></section>
+      </main>
 
-      <section class="new-tweet">
-        <form class="tweetForm">
-          <label class="tweetHeader" for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="submit-section">
-            <button type="submit" class="tweet-btn">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-
-      <section id="tweets-container"></section>
-      
-    </main>
-
+    <!-- ------------------------------------------------------------------------------- -->
 
   </body>
 </html>

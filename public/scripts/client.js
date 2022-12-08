@@ -80,7 +80,9 @@ $(document).ready(function() {
     // error if tweet length is invalid, does not send ajax POST request
     const $tweetlength = $('#tweet-text').val().length
       if ($tweetlength === 0 || $tweetlength > 140){
-        return alert('This field can not be empty or have more than 140 characters')
+
+        return $('.errorMessage').css('visibility', 'visible')
+        // return alert('This field can not be empty or have more than 140 characters')
       }
 
     // get new tweet data from text area and serialize it
@@ -92,7 +94,12 @@ $(document).ready(function() {
       url: "/tweets",
       data: $tweet,
       success: function(data) {
+        
+        $('.errorMessage').css('visibility', 'hidden');
+        $('.counter').text(140);
+
         loadTweets();
+        
       }
 
     });
@@ -100,7 +107,7 @@ $(document).ready(function() {
     // Clear text area after new tweet is posted to page
     this.reset();
     // restart counter at 140
-    $('.counter').text(140);
+
   });
 
 });

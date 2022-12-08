@@ -1,7 +1,7 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #809bce;
   color: #FFFFFF;
   display:flex;
   padding: 1.5em;
@@ -12,6 +12,7 @@ nav {
 
 h1.logo{
   font-family: 'Bungee', cursive;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 transparent, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 div.newTweet{
@@ -19,3 +20,26 @@ div.newTweet{
   flex-direction: column;
   align-items: center;
 }
+
+
+@media only screen and (min-width: 768px) {
+
+  nav {
+    background-color: #738cb9;
+  }
+
+}
+@media (max-width:490px){
+  nav {
+    display:flex;
+    flex-direction: column;
+  }
+
+  h1.logo{
+    font-size: 30px;
+  }
+
+  div.newTweet{
+    visibility: hidden;
+  }
+} 

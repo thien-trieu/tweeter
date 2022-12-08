@@ -15,7 +15,7 @@ html {
  */
 
 body {
-  color: #545149;
+  color: black;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
@@ -35,4 +35,29 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
+ }
+
+ @media only screen and (min-width: 768px) {
+
+  nav {
+    background-color: #2b47a3;
+  }
+
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  header.main {
+    flex: 1;
+    margin-top: 160px;
+    margin-left: 50px;
+  }
+  
+  main.container {
+    flex: 2;
+    margin-top: 160px;
+    padding: 50px;
+  
+  }
 }
