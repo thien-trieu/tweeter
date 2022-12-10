@@ -1,19 +1,34 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+(function($) {
+  $(document).ready(function() {
+    // load existing tweet db
+    loadTweets();
 
+    // Write a new tweet in nav will focus on input field
+    $('.writeNewTweet').on('click', writeNewTweet);
 
-const escapeXss = function(str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
+    // nav arrow hide/show input area
+    $('.hide_show_inputArea').on('click', hideShowInputArea);
 
-// Tweet element for each tweet will appear within section#tweet-container
-const createTweetElement = function(tweet) {
-  let $tweet = `
+    // scroll button at the botton will appear when window scrolls down
+    $(window).on('scroll', showScrollUpBtn);
+
+    // scroll when clicked will scroll page up to text area
+    $('.scrollUp').on('click', scrollUp);
+
+    // tweet submission
+    $('.tweetForm').on('submit', newTweetSubmit);
+
+  });
+
+  const escapeXss = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  // Tweet element for each tweet will appear within section#tweet-container
+  const createTweetElement = function(tweet) {
+    let $tweet = `
   <article class="tweets">
   <header class="tweetHeader">
     <div class="tweeterProfile">
@@ -36,92 +51,81 @@ const createTweetElement = function(tweet) {
   </footer>
 </article>`;
 
-  return $tweet;
-};
+    return $tweet;
+  };
 
 
-const renderTweets = function(tweets) {
-  const allTweets = [];
+  const renderTweets = function(tweets) {
+    const allTweets = [];
 
-  for (const tweet of tweets) {
-    // check all data for tweets and place each tweet into HTML template
-    const $tweet = createTweetElement(tweet);
-    allTweets.push($tweet);
+    for (const tweet of tweets) {
+      // check all data for tweets and place each tweet into HTML template
+      const $tweet = createTweetElement(tweet);
+      allTweets.push($tweet);
 
-  }
-  // most recent tweet will appear at top of container
-  $('#tweets-container').html(allTweets.reverse());
-
-  return;
-};
-
-
-const loadTweets = function() {
-  // gets the tweet db from /tweets route and calls renderTweets to post on to page
-  $.ajax({
-    type: "GET",
-    url: "/tweets",
-    success: function(tweet) {
-      renderTweets(tweet);
     }
-  });
-  return;
-};
+    // most recent tweet will appear at top of container
+    $('#tweets-container').html(allTweets.reverse());
 
-$(document).ready(function() {
-  // load existing tweet db
-  loadTweets();
+    return;
+  };
 
-  
-  // Write a new tweet in nav will focus on input field for text area
-  $('.navTweet').click(function() {
+
+  const loadTweets = function() {
+    // gets the tweet db from /tweets route and calls renderTweets to post on to page
+    $.ajax({
+      type: "GET",
+      url: "/tweets",
+      success: function(tweet) {
+        renderTweets(tweet);
+      }
+    });
+    return;
+  };
+
+  const writeNewTweet = function() {
     event.preventDefault();
-    const newTweetSection = $('.new-tweet')
-    if (newTweetSection.is(':hidden')){
-      newTweetSection.slideDown('fast')
-      newTweetSection.find('#tweet-text').focus()
+    const newTweetSection = $('.new-tweet');
+    if (newTweetSection.is(':hidden')) {
+      newTweetSection.slideDown('fast');
+      newTweetSection.find('#tweet-text').focus();
     }
     $('#tweet-text').focus();
-  });
-  
-  // nav arrow hide/show new tweet section
-  $('.next').click(function() {
-    event.preventDefault();
-    const newTweetSection = $('.new-tweet')
-    console.log(newTweetSection)
+  };
 
-    if (newTweetSection.is(':visible')){
-      newTweetSection.slideUp('fast')
+  const hideShowInputArea = function() {
+    event.preventDefault();
+    const newTweetSection = $('.new-tweet');
+
+    if (newTweetSection.is(':visible')) {
+      newTweetSection.slideUp('fast');
     } else {
-      newTweetSection.slideDown('slow')
-      newTweetSection.find('#tweet-text').focus()
+      newTweetSection.slideDown('slow');
+      newTweetSection.find('#tweet-text').focus();
     }
 
-  });
-  
-  // scroll button at the botton will appear when window scrolls down
-  $(window).scroll(function() {
+  };
+
+  const showScrollUpBtn = function() {
     if (window.pageYOffset > 100) {
       $('.scrollUp').addClass('active');
     } else {
       $('.scrollUp').removeClass('active');
     }
-  });
+  };
 
-  // scroll when clicked will scroll page up to text area
-  $('.scrollUp').click(function() {
+  const scrollUp = function() {
     event.preventDefault();
-    const newTweetSection = $('.new-tweet')
-    if (newTweetSection.is(':hidden')){
-      newTweetSection.slideDown('fast')
-      newTweetSection.find('#tweet-text').focus()
+    const newTweetSection = $('.new-tweet');
+    if (newTweetSection.is(':hidden')) {
+      newTweetSection.slideDown('fast');
+      newTweetSection.find('#tweet-text').focus();
     }
     $('#tweet-text').focus();
 
-  });
+  };
 
-  // tweet submission
-  $('.tweetForm').submit(function(event) {
+  const newTweetSubmit = function(event) {
     // prevent page from re-loading
     event.preventDefault();
 
@@ -155,7 +159,6 @@ $(document).ready(function() {
     // Clear text area after new tweet is posted to page
     this.reset();
     // restart counter at 140
+  };
 
-  });
-
-});
+})(jQuery);

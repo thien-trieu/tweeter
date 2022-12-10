@@ -25,17 +25,17 @@ i.fa-angles-down {
   animation: bounce 0.3s infinite;
 }
 
-a.navTweet {
+a.writeNewTweet {
   text-decoration: none;
   color: #FFFFFF;
   font-size:20px;
 }
 
-a.navTweet:hover {
+a.writeNewTweet:hover {
   font-weight: bold;
 }
 
-a.next {
+a.hide_show_inputArea {
   text-decoration: none;
   color: #FFFFFF;
 }
